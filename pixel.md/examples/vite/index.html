@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#171d19" />
+    <title>pixel.md · Vite chat example</title>
+  </head>
+  <body>
+    <main class="page">
+      <a class="brand" href="https://jjongyn.github.io/pixel.md/">
+        <span class="brand-mark" aria-hidden="true"></span>pixel.md
+      </a>
+      <section class="chat-card" aria-label="Example chat">
+        <header><span>PROJECT ASSISTANT</span><span class="connection"><i></i> READY</span></header>
+        <div class="messages" id="messages" aria-live="polite">
+          <p class="welcome">Your chat UI stays yours.<br /><span>Send a message to see the status respond.</span></p>
+        </div>
+        <div class="status-slot" id="status-slot"></div>
+        <pixel-chat-effect variant="orbit">
+          <form class="composer" id="composer">
+            <textarea id="prompt" rows="2" aria-label="Message" placeholder="Ask your agent anything…" required></textarea>
+            <button type="submit" aria-label="Send message">↑</button>
+          </form>
+        </pixel-chat-effect>
+      </section>
+      <p class="note">The response is simulated. Connect status changes to your model stream.</p>
+      <details class="code"><summary>See the two integration points</summary><pre><code>import 'pixel.md/chat-effect';
+import 'pixel.md/indicator';</code></pre><pre><code>&lt;pixel-agent-status state="thinking" label="Thinking…"&gt;&lt;/pixel-agent-status&gt;
+&lt;pixel-chat-effect variant="orbit"&gt;
+  &lt;your-existing-chat-input&gt;&lt;/your-existing-chat-input&gt;
+&lt;/pixel-chat-effect&gt;</code></pre></details>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

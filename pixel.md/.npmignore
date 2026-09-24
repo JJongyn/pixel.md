@@ -1,0 +1,4 @@
+examples/vite/node_modules/
+examples/vite/dist/
+**/node_modules/
+**/dist/

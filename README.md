@@ -29,26 +29,35 @@ The gallery lets you try every component and copy its individual usage snippet. 
 
 ## Quick start
 
-Import only the browser components your app uses:
+For a clean first install, start a small Vite app and add the package:
+
+```bash
+npm create vite@latest my-agent-ui -- --template vanilla
+cd my-agent-ui
+npm install pixel.md
+npm run dev
+```
+
+Vite's current release requires Node.js 20.19 or newer.
+
+Import only the components you use in `src/main.js`:
 
 ```js
 import 'pixel.md/indicator';
 import 'pixel.md/chat-effect';
 ```
 
+Place the elements in your existing `index.html` or app template:
+
 ```html
-<pixel-agent-status
-  state="thinking"
-  label="Thinking…"
-  detail="Connecting ideas"
-></pixel-agent-status>
+<pixel-agent-status state="thinking" label="Thinking…" detail="Connecting ideas"></pixel-agent-status>
 
 <pixel-chat-effect variant="orbit">
   <textarea placeholder="Ask anything…"></textarea>
 </pixel-chat-effect>
 ```
 
-`<pixel-chat-effect>` adds an animated pixel treatment around your input; your app keeps control of the textarea, messages, and send behavior. Change the indicator's `state`, `label`, or `detail` attributes as your agent moves through its workflow.
+This exact integration is available as a [runnable Vite example](pixel.md/examples/vite/README.md). `<pixel-chat-effect>` adds a pixel treatment around your input; your app still owns the textarea, messages, and send behavior. Update the indicator's `state`, `label`, and `detail` from your real agent state.
 
 ## Components
 
