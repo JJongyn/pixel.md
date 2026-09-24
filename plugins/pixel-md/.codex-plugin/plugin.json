@@ -1,0 +1,38 @@
+{
+  "name": "pixel-md",
+  "version": "0.1.0",
+  "description": "Pixel design skills for AI, agent, chat, and terminal interfaces.",
+  "author": {
+    "name": "JJongyn",
+    "url": "https://github.com/JJongyn"
+  },
+  "homepage": "https://jjongyn.github.io/pixel.md/",
+  "repository": "https://github.com/JJongyn/pixel.md",
+  "license": "MIT",
+  "keywords": [
+    "pixel",
+    "ai",
+    "agent",
+    "chat",
+    "ui",
+    "terminal"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "pixel.md",
+    "shortDescription": "Pixel UI skills for AI products.",
+    "longDescription": "Use pixel.md component skills to add compact pixel indicators, chat effects, workflow UI, avatars, and terminal patterns to AI and agent products.",
+    "developerName": "JJongyn",
+    "category": "Developer tools",
+    "capabilities": [
+      "Agent skills"
+    ],
+    "websiteURL": "https://jjongyn.github.io/pixel.md/",
+    "brandColor": "#355C43",
+    "defaultPrompt": [
+      "Add a pixel.md agent indicator for this app.",
+      "Wrap this chat composer with a subtle pixel effect.",
+      "Choose a pixel.md workflow element for this state."
+    ]
+  }
+}

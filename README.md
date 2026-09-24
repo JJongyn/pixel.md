@@ -122,7 +122,7 @@ The terminal helpers format output and collect input; they do not execute shell 
 
 ## Agent skills
 
-The package includes the [`pixel-md` skill](pixel.md/skills/pixel-md/SKILL.md), with component-specific references for indicators, chat effects, UI elements, bots, and terminal patterns. To add it to a project:
+The package includes a general [`pixel-md` catalog skill](pixel.md/skills/pixel-md/SKILL.md) with references for indicators, chat effects, UI elements, bots, and terminal patterns, plus focused indicator, chat-effect, and UI-element skills. To add the general skill manually to a project:
 
 ```bash
 mkdir -p .agents/skills
@@ -130,6 +130,26 @@ cp -R node_modules/pixel.md/skills/pixel-md .agents/skills/
 ```
 
 For Claude Code, copy the same folder to `.claude/skills/` instead. The skill is optional; the components work without it.
+
+## Install as a coding-agent plugin
+
+The repository also provides a plugin marketplace for Codex and Claude Code. It installs the general catalog skill and focused indicator, chat-effect, and UI-element skills. The skills guide the agent; install `pixel.md` separately in the app when you want to use the runtime components.
+
+### Codex
+
+```bash
+codex plugin marketplace add JJongyn/pixel.md
+codex plugin add pixel-md@personal
+```
+
+### Claude Code
+
+```text
+/plugin marketplace add JJongyn/pixel.md
+/plugin install pixel-md@pixel-md
+```
+
+In Codex, the plugin is also listed in this repository's marketplace. In Claude Code, skills use the `/pixel-md:...` namespace. Refresh the marketplace to receive later plugin releases.
 
 ## Live gallery
 

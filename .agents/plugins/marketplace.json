@@ -1,0 +1,20 @@
+{
+  "name": "personal",
+  "interface": {
+    "displayName": "pixel.md"
+  },
+  "plugins": [
+    {
+      "name": "pixel-md",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pixel-md"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer tools"
+    }
+  ]
+}

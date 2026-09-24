@@ -1,0 +1,20 @@
+{
+  "name": "pixel-md",
+  "description": "Pixel UI skills for AI, agent, chat, and terminal interfaces.",
+  "version": "0.1.0",
+  "author": {
+    "name": "JJongyn",
+    "url": "https://github.com/JJongyn"
+  },
+  "homepage": "https://jjongyn.github.io/pixel.md/",
+  "repository": "https://github.com/JJongyn/pixel.md",
+  "license": "MIT",
+  "keywords": [
+    "pixel",
+    "ai",
+    "agent",
+    "chat",
+    "ui",
+    "terminal"
+  ]
+}
