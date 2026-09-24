@@ -1,0 +1,48 @@
+{
+  "name": "pixel.md",
+  "version": "0.1.0",
+  "description": "Small pixel UI components for AI and agent interfaces",
+  "type": "module",
+  "license": "UNLICENSED",
+  "sideEffects": true,
+  "files": [
+    "src",
+    "types",
+    "skills",
+    "scripts",
+    "README.md",
+    "assets"
+  ],
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./indicator": {
+      "types": "./types/indicator.d.ts",
+      "default": "./src/pixel-agent-status.js"
+    },
+    "./chat-effect": {
+      "types": "./types/chat-effect.d.ts",
+      "default": "./src/pixel-chat-effect.js"
+    },
+    "./elements": {
+      "types": "./types/elements.d.ts",
+      "default": "./src/pixel-ui-element.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./types/index.d.ts",
+  "keywords": [
+    "web-components",
+    "pixel",
+    "agent",
+    "ai",
+    "chat",
+    "ui",
+    "animation"
+  ],
+  "scripts": {
+    "prepack": "node scripts/sync-skills.mjs"
+  }
+}

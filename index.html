@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f6f7f2" />
+  <title>pixel.md — Pixel UI components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="module" src="./pixel.md/src/pixel-agent-status.js?v=2"></script>
+  <script type="module" src="./pixel.md/src/pixel-chat-effect.js?v=26"></script>
+  <script type="module" src="./pixel.md/src/pixel-ui-element.js?v=9"></script>
+  <link rel="stylesheet" href="./site.css" />
+</head>
+<body>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="#library"><i class="brand-mark" aria-hidden="true"></i><span>pixel.md</span></a><span class="header-count">35 LIVE PREVIEWS</span></div></header>
+  <main>
+    <div class="intro"><div><span class="eyebrow">INTERFACE COMPONENTS FOR AI PRODUCTS</span><h1>Small pixels. Clear intent.</h1></div><p>Choose a component, try it live, copy the code.</p></div>
+    <section class="library" id="library"><div class="library-heading"><span>COMPONENTS</span><span>01 — 03</span></div><div class="component-tabs" role="tablist" aria-label="Component families"><button id="indicator-tab" type="button" role="tab" aria-controls="indicator-panel" aria-selected="true" data-tab="indicator"><span>01</span>Indicators <small>10</small></button><button id="composer-tab" type="button" role="tab" aria-controls="composer-panel" aria-selected="false" data-tab="composer" tabindex="-1"><span>02</span>Chat effects <small>6</small></button><button id="elements-tab" type="button" role="tab" aria-controls="elements-panel" aria-selected="false" data-tab="elements" tabindex="-1"><span>03</span>Elements <small>19</small></button></div>
+      <div class="component-panel" id="indicator-panel" role="tabpanel" aria-labelledby="indicator-tab"><div class="panel-head"><div><h3>Indicator</h3></div><span class="panel-count">10 STATES · ONE API</span></div><div class="status-grid">
+        <article class="state-card"><div class="state-card-head"><span class="state-code">01 / THINKING</span></div><div class="state-stage"><pixel-agent-status size="large" state="thinking" label="Thinking…" detail="Connecting ideas"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="thinking" label="Thinking through request" detail="Finding an approach"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">02 / SEARCHING</span></div><div class="state-stage"><pixel-agent-status size="large" state="searching" label="Searching…" detail="Finding a useful signal"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="searching" label="Searching docs" detail="4 sources"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">03 / BROWSING</span></div><div class="state-stage"><pixel-agent-status size="large" state="browsing" label="Browsing…" detail="Moving between pages"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="browsing" label="Browsing the web" detail="3 pages"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">04 / READING</span></div><div class="state-stage"><pixel-agent-status size="large" state="reading" label="Reading…" detail="Taking in context"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="reading" label="Reading sources" detail="4 sources"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">05 / PLANNING</span></div><div class="state-stage"><pixel-agent-status size="large" state="planning" label="Planning…" detail="Choosing a path"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="planning" label="Planning next steps" detail="3 actions"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">06 / ACTING</span></div><div class="state-stage"><pixel-agent-status size="large" state="acting" label="Acting…" detail="Completing the next step"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="acting" label="Taking action" detail="Step 2 of 4"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">07 / USING TOOL</span></div><div class="state-stage"><pixel-agent-status size="large" state="tool" label="Using tool…" detail="Sending and receiving"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="tool" label="Using tool" detail="Waiting for results"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">08 / BUILDING</span></div><div class="state-stage"><pixel-agent-status size="large" state="building" label="Building…" detail="Parts becoming whole"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="building" label="Building answer" detail="Drafting"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">09 / VERIFYING</span></div><div class="state-stage"><pixel-agent-status size="large" state="verifying" label="Verifying…" detail="Checking the result"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="verifying" label="Verifying result" detail="Final check"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+        <article class="state-card"><div class="state-card-head"><span class="state-code">10 / RESPONDING</span></div><div class="state-stage"><pixel-agent-status size="large" state="responding" label="Responding…" detail="Thought becoming words"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="responding" label="Responding" detail="Almost ready"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
+      </div><details class="usage"><summary>Install &amp; usage <span>Show code ↗</span></summary><div class="usage-body"><pre>&lt;script type="module"&gt;import "pixel.md/indicator";&lt;/script&gt;
+&lt;pixel-agent-status state="thinking" label="Thinking…"&gt;&lt;/pixel-agent-status&gt;</pre><button class="copy-code" data-copy="indicator">Copy code</button></div></details></div>
+      <div class="component-panel" id="composer-panel" role="tabpanel" aria-labelledby="composer-tab" hidden><div class="panel-head"><div><h3>Chat effects</h3><p>Animated pixels for your own chat input.</p></div><span class="panel-count">6 EFFECTS · ONE WRAPPER</span></div><div class="composer-grid">
+        <article class="composer-card" data-style="orbit"><div class="composer-card-header"><div><b>01 / Orbit</b><small>Two signals · continuous perimeter</small></div></div><div class="composer-stage"><pixel-chat-effect variant="orbit"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="orbit">Copy code</button></div></article>
+        <article class="composer-card" data-style="hop"><div class="composer-card-header"><div><b>02 / Hop</b><small>Three pixels · shallow bounce</small></div></div><div class="composer-stage"><pixel-chat-effect variant="hop"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="hop">Copy code</button></div></article>
+        <article class="composer-card" data-style="anchor"><div class="composer-card-header"><div><b>03 / Anchor</b><small>Colored corners · breathing frame</small></div></div><div class="composer-stage"><pixel-chat-effect variant="anchor"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="anchor">Copy code</button></div></article>
+        <article class="composer-card" data-style="bevel"><div class="composer-card-header"><div><b>04 / Bevel</b><small>3D pixel frame · vertical axis</small></div></div><div class="composer-stage"><pixel-chat-effect variant="bevel"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="bevel">Copy code</button></div></article>
+        <article class="composer-card" data-style="tilt"><div class="composer-card-header"><div><b>05 / Tilt</b><small>3D pixel frame · horizontal axis</small></div></div><div class="composer-stage"><pixel-chat-effect variant="tilt"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="tilt">Copy code</button></div></article>
+        <article class="composer-card" data-style="prism"><div class="composer-card-header"><div><b>06 / Prism</b><small>Pixel frame · diagonal axis</small></div></div><div class="composer-stage"><pixel-chat-effect variant="prism"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="prism">Copy code</button></div></article>
+      </div><details class="usage"><summary>Install &amp; usage <span>Show code ↗</span></summary><div class="usage-body"><pre>&lt;script type="module"&gt;import "pixel.md/chat-effect";&lt;/script&gt;
+&lt;pixel-chat-effect variant="orbit"&gt;
+  &lt;your-chat-input&gt;&lt;/your-chat-input&gt;
+&lt;/pixel-chat-effect&gt;</pre><button class="copy-code" data-copy="composer">Copy code</button></div></details></div>
+
+      <div class="component-panel" id="elements-panel" role="tabpanel" aria-labelledby="elements-tab" hidden><div class="panel-head"><div><h3>UI elements</h3><p>Click a preview to try it.</p></div><span class="panel-count">19 ELEMENTS · INTERACTIVE</span></div><div class="element-filters" role="group" aria-label="Filter UI elements"><button type="button" data-element-filter="all" aria-pressed="true">ALL <span>19</span></button><button type="button" data-element-filter="control" aria-pressed="false">CONTROL <span>05</span></button><button type="button" data-element-filter="feedback" aria-pressed="false">FEEDBACK <span>05</span></button><button type="button" data-element-filter="workflow" aria-pressed="false">WORKFLOW <span>05</span></button><button type="button" data-element-filter="context" aria-pressed="false">CONTEXT <span>04</span></button></div><div class="element-grid">
+        <article class="element-card" data-element-group="control"><div class="element-card-head"><div><b>01 / Background toggle</b></div><em>CONTROL</em></div><pixel-ui-element variant="toggle" label="Background actions"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-toggle">Copy code</button></div></article>
+        <article class="element-card" data-element-group="feedback"><div class="element-card-head"><div><b>02 / Count up</b></div><em>NUMBER</em></div><pixel-ui-element variant="count" label="Tasks completed" value="128"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-count">Copy code</button></div></article>
+        <article class="element-card" data-element-group="feedback"><div class="element-card-head"><div><b>03 / Saved toast</b></div><em>TOAST</em></div><pixel-ui-element variant="toast"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-toast">Copy code</button></div></article>
+        <article class="element-card" data-element-group="control"><div class="element-card-head"><div><b>04 / Workflow tabs</b></div><em>SELECT</em></div><pixel-ui-element variant="tabs"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-tabs">Copy code</button></div></article>
+        <article class="element-card" data-element-group="control"><div class="element-card-head"><div><b>05 / Approval check</b></div><em>CHECKBOX</em></div><pixel-ui-element variant="check"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-check">Copy code</button></div></article>
+        <article class="element-card" data-element-group="context"><div class="element-card-head"><div><b>06 / Activity reveal</b></div><em>DISCLOSURE</em></div><pixel-ui-element variant="reveal"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-reveal">Copy code</button></div></article>
+        <article class="element-card" data-element-group="workflow"><div class="element-card-head"><div><b>07 / Workspace progress</b></div><em>PROGRESS</em></div><pixel-ui-element variant="progress" label="Indexing workspace" value="62"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-progress">Copy code</button></div></article>
+        <article class="element-card" data-element-group="context"><div class="element-card-head"><div><b>08 / Source citations</b></div><em>CITATION</em></div><pixel-ui-element variant="sources" items='[{"label":"Order #4821","detail":"Delivered 7 days ago · eligible"},{"label":"Return policy","detail":"30-day return window · current"},{"label":"Help center","detail":"Return instructions · support"}]'></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-sources">Copy code</button></div></article>
+        <article class="element-card" data-element-group="feedback"><div class="element-card-head"><div><b>09 / Retry request</b></div><em>RETRY</em></div><pixel-ui-element variant="retry"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-retry">Copy code</button></div></article>
+        <article class="element-card" data-element-group="feedback"><div class="element-card-head"><div><b>10 / Answer feedback</b></div><em>FEEDBACK</em></div><pixel-ui-element variant="feedback"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-feedback">Copy code</button></div></article>
+        <article class="element-card" data-element-group="feedback"><div class="element-card-head"><div><b>11 / Copy response</b></div><em>COPY</em></div><pixel-ui-element variant="copy"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-copy">Copy code</button></div></article>
+        <article class="element-card" data-element-group="context"><div class="element-card-head"><div><b>12 / Attachment chip</b></div><em>ATTACHMENT</em></div><pixel-ui-element variant="file"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-file">Copy code</button></div></article>
+        <article class="element-card" data-element-group="workflow"><div class="element-card-head"><div><b>13 / Task queue</b></div><em>QUEUE</em></div><pixel-ui-element variant="queue"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-queue">Copy code</button></div></article>
+        <article class="element-card" data-element-group="workflow"><div class="element-card-head"><div><b>14 / Send approval</b></div><em>APPROVAL</em></div><pixel-ui-element variant="approval"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-approval">Copy code</button></div></article>
+        <article class="element-card" data-element-group="workflow"><div class="element-card-head"><div><b>15 / Response stream</b></div><em>STREAM</em></div><pixel-ui-element variant="stream"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-stream">Copy code</button></div></article>
+        <article class="element-card" data-element-group="workflow"><div class="element-card-head"><div><b>16 / Tool handoff</b></div><em>HANDOFF</em></div><pixel-ui-element variant="handoff"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-handoff">Copy code</button></div></article>
+        <article class="element-card" data-element-group="control"><div class="element-card-head"><div><b>17 / Plan selection</b></div><em>DECISION</em></div><pixel-ui-element variant="branch"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-branch">Copy code</button></div></article>
+        <article class="element-card" data-element-group="context"><div class="element-card-head"><div><b>18 / Usage meter</b></div><em>USAGE</em></div><pixel-ui-element variant="usage" label="Monthly credits" value="68"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-usage">Copy code</button></div></article>
+        <article class="element-card" data-element-group="control"><div class="element-card-head"><div><b>19 / Workflow stepper</b></div><em>STEPS</em></div><pixel-ui-element variant="steps"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-steps">Copy code</button></div></article>
+      </div><details class="usage"><summary>Install &amp; usage <span>Show code ↗</span></summary><div class="usage-body"><pre>&lt;script type="module"&gt;import "pixel.md/elements";&lt;/script&gt;
+&lt;pixel-ui-element variant="toast"&gt;&lt;/pixel-ui-element&gt;</pre><button class="copy-code" data-copy="elements">Copy code</button></div></details></div>
+    </section>
+    <footer><span>pixel.md</span><span>35 COMPONENT PREVIEWS</span></footer>
+  </main>
+  <script type="module">
+    const motionBehavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    document.querySelectorAll('.sample-composer button').forEach(button => button.addEventListener('click', () => {
+      const input = button.previousElementSibling;
+      input.value = '';
+      input.focus();
+    }));
+
+    function activateTab(name, scroll = false) {
+      const target = ['indicator', 'composer', 'elements'].includes(name) ? name : 'indicator';
+      document.querySelectorAll('[role=tab]').forEach(button => {
+        const active = button.dataset.tab === target;
+        button.setAttribute('aria-selected', String(active));
+        button.tabIndex = active ? 0 : -1;
+      });
+      document.querySelector('#indicator-panel').hidden = target !== 'indicator';
+      document.querySelector('#composer-panel').hidden = target !== 'composer';
+      document.querySelector('#elements-panel').hidden = target !== 'elements';
+      if (scroll) document.querySelector('#library').scrollIntoView({ behavior: motionBehavior, block: 'start' });
+    }
+    document.querySelectorAll('[role=tab]').forEach(button => {
+      button.addEventListener('click', () => {
+        activateTab(button.dataset.tab);
+        history.replaceState(null, '', '#' + button.dataset.tab);
+      });
+      button.addEventListener('keydown', event => {
+        if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+        event.preventDefault();
+        const tabs = [...document.querySelectorAll('[role=tab]')];
+        const current = tabs.indexOf(button);
+        const step = event.key === 'ArrowRight' ? 1 : -1;
+        const next = tabs[(current + step + tabs.length) % tabs.length].dataset.tab;
+        activateTab(next);
+        document.querySelector('#' + next + '-tab').focus();
+        history.replaceState(null, '', '#' + next);
+      });
+    });
+    document.querySelectorAll('[data-nav-tab]').forEach(link => link.addEventListener('click', event => {
+      event.preventDefault();
+      activateTab(link.dataset.navTab, true);
+      history.replaceState(null, '', '#' + link.dataset.navTab);
+    }));
+    if (['#composer', '#indicator', '#elements'].includes(location.hash)) activateTab(location.hash.slice(1));
+    addEventListener('hashchange', () => {
+      if (['#composer', '#indicator', '#elements'].includes(location.hash)) activateTab(location.hash.slice(1));
+    });
+
+    document.querySelectorAll('[data-element-filter]').forEach(button => button.addEventListener('click', () => {
+      const group = button.dataset.elementFilter;
+      document.querySelectorAll('[data-element-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      let visible = 0;
+      document.querySelectorAll('.element-card').forEach(card => {
+        card.hidden = group !== 'all' && card.dataset.elementGroup !== group;
+        if (!card.hidden) visible += 1;
+      });
+      document.querySelector('#elements-panel .panel-count').textContent = `${visible} OF 19 ELEMENTS · ${group.toUpperCase()}`;
+    }));
+
+    const packageEntry = {
+      'pixel-agent-status.js': 'indicator',
+      'pixel-chat-effect.js': 'chat-effect',
+      'pixel-ui-element.js': 'elements'
+    };
+    const moduleTag = file => '<script type="module">import "pixel.md/' + packageEntry[file] + '";</' + 'script>';
+    const code = {
+      indicator: moduleTag('pixel-agent-status.js') + '\n<pixel-agent-status state="thinking" label="Thinking…"></pixel-agent-status>',
+      composer: moduleTag('pixel-chat-effect.js') + '\n<pixel-chat-effect variant="orbit">\n  <your-chat-input></your-chat-input>\n</pixel-chat-effect>',
+      elements: moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="toast"></pixel-ui-element>',
+      'element-toggle': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="toggle" label="Background actions"></pixel-ui-element>',
+      'element-count': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="count" label="Tasks completed" value="128"></pixel-ui-element>',
+      'element-toast': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="toast"></pixel-ui-element>',
+      'element-tabs': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="tabs"></pixel-ui-element>',
+      'element-check': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="check"></pixel-ui-element>',
+      'element-reveal': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="reveal"></pixel-ui-element>',
+      'element-progress': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="progress" label="Indexing workspace" value="62"></pixel-ui-element>',
+      'element-sources': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="sources"></pixel-ui-element>',
+      'element-retry': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="retry"></pixel-ui-element>',
+      'element-feedback': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="feedback"></pixel-ui-element>',
+      'element-copy': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="copy"></pixel-ui-element>',
+      'element-file': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="file"></pixel-ui-element>',
+      'element-queue': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="queue"></pixel-ui-element>',
+      'element-approval': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="approval"></pixel-ui-element>',
+      'element-stream': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="stream"></pixel-ui-element>',
+      'element-handoff': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="handoff"></pixel-ui-element>',
+      'element-branch': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="branch"></pixel-ui-element>',
+      'element-usage': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="usage" label="Monthly credits" value="68"></pixel-ui-element>',
+      'element-steps': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="steps"></pixel-ui-element>'
+    };
+    document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', async () => {
+      const key = button.dataset.copy;
+      const value = key.startsWith('<') ? moduleTag('pixel-agent-status.js') + '\n' + key : (code[key] || moduleTag('pixel-chat-effect.js') + '\n<pixel-chat-effect variant="' + key + '">\n  <your-chat-input></your-chat-input>\n</pixel-chat-effect>');
+      try {
+        await navigator.clipboard.writeText(value);
+        const previous = button.textContent;
+        button.textContent = 'Copied ✓';
+        setTimeout(() => button.textContent = previous, 1300);
+      } catch {
+        button.textContent = 'Copy unavailable';
+      }
+    }));
+  </script>
+</body>
+</html>
