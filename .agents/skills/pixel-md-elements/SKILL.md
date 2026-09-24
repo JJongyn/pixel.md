@@ -1,6 +1,6 @@
 ---
 name: pixel-md-elements
-description: Add pixel.md workflow elements to AI and agent interfaces. Use for compact progress, approval, citations, retries, feedback, streaming, handoff, and other agent workflow controls.
+description: Add pixel.md workflow elements to AI and agent interfaces. Use for compact progress, approval, citations, retries, feedback, streaming, handoff, voice input, response navigation, and attachment upload states.
 ---
 
 # pixel.md workflow elements

@@ -1,6 +1,6 @@
 # Agent workflow UI elements
 
-Import `pixel.md/elements`. Choose the element that fits the actual interaction, then connect its event or attributes to application state. Render a concise example with `<pixel-ui-element variant="progress" label="Indexing workspace" value="62"></pixel-ui-element>`.
+Import `pixel.md/elements`. Choose an element for a real interaction, then connect its event or attributes to application state.
 
 | Variant | Use for | Component guide |
 | --- | --- | --- |
@@ -15,7 +15,7 @@ Import `pixel.md/elements`. Choose the element that fits the actual interaction,
 | `retry` | Offer a retry after an unsuccessful response. | [Retry](components/elements/retry.md) |
 | `feedback` | Collect feedback about an answer. | [Feedback](components/elements/feedback.md) |
 | `copy` | Copy response text or a generated value. | [Copy](components/elements/copy.md) |
-| `file` | Show an attachment or supplied file. | [File](components/elements/file.md) |
+| `file` | Show a single attachment. | [File](components/elements/file.md) |
 | `queue` | Show queued or upcoming agent tasks. | [Queue](components/elements/queue.md) |
 | `approval` | Ask for confirmation before an action. | [Approval](components/elements/approval.md) |
 | `stream` | Show text arriving progressively. | [Stream](components/elements/stream.md) |
@@ -23,14 +23,21 @@ Import `pixel.md/elements`. Choose the element that fits the actual interaction,
 | `branch` | Let a user choose a plan or next path. | [Branch](components/elements/branch.md) |
 | `usage` | Show a quota or usage level. | [Usage](components/elements/usage.md) |
 | `steps` | Summarize ordered workflow progress. | [Steps](components/elements/steps.md) |
+| `voice` | Present voice capture, transcription, and speech states. | [Voice](components/elements/voice.md) |
+| `new-response` | Let readers return to the latest messages. | [New response](components/elements/new-response.md) |
+| `upload` | Select files and show queued, uploading, processing, ready, or failed states. | [Upload](components/elements/upload.md) |
 
-Supported configurable properties include `label`, `value`, and `text`. `items` accepts a JSON array of one to five strings or objects with `label` and optional `detail` for `tabs`, `sources`, `queue`, `branch`, and `steps`.
+Supported properties include `label`, `value`, `text`, `items`, and `state`. `items` accepts a JSON array of one to five strings or objects with `label` and optional `detail` for `tabs`, `sources`, `queue`, `branch`, and `steps`. The upload list accepts up to eight file items with `label`, `detail`, `state`, and `progress`:
 
-```js
-document.querySelector('pixel-ui-element').addEventListener('pixel-element-change', event => {
-  const { variant, state } = event.detail;
-  // Run the matching application action or update application state.
-});
+```html
+<pixel-ui-element variant="upload" items='[{"label":"brief.pdf","detail":"2.4 MB · PDF","state":"uploading","progress":68}]'></pixel-ui-element>
 ```
 
-The bubbling `pixel-element-change` event reports UI intent; wire it to the real app. In particular, approval, retry, handoff, and progress elements do not themselves execute external or business actions.
+Connect the bubbling `pixel-element-change` event to application behavior. The event reports user intent; microphone permission/capture, conversation scrolling, file transport, retries, approvals, and agent operations remain with the host application.
+
+```js
+document.querySelector('pixel-ui-element[variant="voice"]')
+  .addEventListener('pixel-element-change', ({ detail }) => {
+    if (detail.state === 'start-listening') startYourMicrophoneFlow();
+  });
+```

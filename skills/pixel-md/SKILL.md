@@ -13,7 +13,7 @@ Use the component reference that matches the UI task, then integrate it with the
 | --- | --- | --- |
 | Agent status | Show what an AI agent is doing now. | [10 indicator components](references/indicators.md) |
 | Chat effect | Add pixel frames or tiny moving scenes around an existing chat composer. | [10 chat effect components](references/chat-effects.md) |
-| UI element | Add controls, feedback, context, or workflow details. | [19 UI elements](references/elements.md) |
+| UI element | Add controls, feedback, context, or workflow details. | [22 UI elements](references/elements.md) |
 | Bot avatar | Give an AI agent a compact, expressive pixel character. | [8 bot avatars](references/bots.md) |
 | Terminal UI | Add pixel prompts, output, task rails, meters, wave streams, parallel-agent status, approvals, diffs, or sessions. | [14 terminal components](references/terminal.md) |
 

@@ -56,7 +56,7 @@ import 'pixel.md/chat-effect';
 | --- | --- | --- |
 | `pixel.md/indicator` | `<pixel-agent-status>` | Thinking, searching, browsing, reading, planning, acting, tool, building, verifying, and responding states |
 | `pixel.md/chat-effect` | `<pixel-chat-effect>` | Orbit, Hop, Anchor, Bevel, Tilt, Prism, Car, and Cat effects, with idle and working states |
-| `pixel.md/elements` | `<pixel-ui-element>` | Compact workflow controls for progress, approvals, sources, retries, streaming, handoff, and more |
+| `pixel.md/elements` | `<pixel-ui-element>` | 22 workflow elements, including voice states, jump-to-latest, and attachment upload/processing |
 | `pixel.md/bot` | `<pixel-bot-avatar>` | Eight animated pixel characters with configurable states and labels |
 | `pixel.md/terminal` | Node.js functions | ANSI-friendly prompts, progress, output, task lists, confirmations, and more |
 | `pixel.md/terminal-preview` | `<pixel-terminal>` | Browser preview of fourteen terminal patterns |
