@@ -2,7 +2,7 @@
 
 ![pixel.md component overview](pixel.md/assets/overview.png)
 
-A small pixel UI library for AI and agent interfaces. Explore the [live gallery](index.html) to preview all 35 states, effects, and elements. The gallery loads the same files that ship in the package.
+A small pixel UI library for AI, agent, and CLI interfaces. Explore the [live gallery](index.html) to preview agent states, chat effects, workflow elements, pixel bots, and fourteen pixel-native terminal patterns. The gallery loads the same files that ship in the package.
 
 ## Package
 
@@ -18,27 +18,30 @@ Then import the components you need:
 import 'pixel.md/indicator';
 import 'pixel.md/chat-effect';
 import 'pixel.md/elements';
+import 'pixel.md/bot';
 ```
 
 ```html
 <pixel-agent-status state="thinking" label="Thinking…"></pixel-agent-status>
-<pixel-chat-effect variant="orbit"><textarea placeholder="Ask anything…"></textarea></pixel-chat-effect>
+<pixel-chat-effect variant="cat"><textarea placeholder="Ask anything…"></textarea></pixel-chat-effect>
 <pixel-ui-element variant="retry"></pixel-ui-element>
+<pixel-bot-avatar variant="mote" state="working" label="San"></pixel-bot-avatar>
+```
+
+Chat effects include subtle orbiting pixel frames and tiny car and cat scenes that switch between idle and working states. Terminal CLI programs use a Node.js module instead of browser tags:
+
+```js
+import { pixelProgress, pixelTaskList } from 'pixel.md/terminal';
+
+console.log(pixelProgress('build', 2, { max: 3 }));
+console.log(pixelTaskList(['resolve', 'compile', 'verify'], { active: 1 }));
 ```
 
 See the [package README](pixel.md/README.md) for variants, attributes, events, TypeScript types, and framework guidance.
 
 ## Agent skills
 
-The three reusable skills live in [`skills/`](skills/):
-
-| Skill | Use |
-| --- | --- |
-| [`pixel-md-indicator`](skills/pixel-md-indicator/SKILL.md) | Connect real agent states to the pixel indicator. |
-| [`pixel-md-chat-effect`](skills/pixel-md-chat-effect/SKILL.md) | Wrap an existing chat input with a restrained pixel effect. |
-| [`pixel-md-elements`](skills/pixel-md-elements/SKILL.md) | Add interactive workflow elements and connect their events. |
-
-This repository exposes them through `.agents/skills/` and `.claude/skills/`. The package also includes copies of the same skills. In another project, copy a desired folder from `node_modules/pixel.md/skills/` into `.agents/skills/` or `.claude/skills/`.
+The [`pixel-md` agent skill](skills/pixel-md/SKILL.md) includes a catalog with a dedicated guide for each indicator state, chat effect, UI element, bot avatar, and terminal component. It is discoverable through `.agents/skills/` and `.claude/skills/`, and ships inside the npm package. In another project, copy `node_modules/pixel.md/skills/pixel-md/` into `.agents/skills/pixel-md/` or `.claude/skills/pixel-md/`.
 
 ## Gallery
 

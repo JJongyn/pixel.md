@@ -10,6 +10,7 @@
     "types",
     "skills",
     "scripts",
+    "examples",
     "README.md",
     "assets"
   ],
@@ -30,6 +31,22 @@
       "types": "./types/elements.d.ts",
       "default": "./src/pixel-ui-element.js"
     },
+    "./bot": {
+      "types": "./types/bot.d.ts",
+      "default": "./src/pixel-bot-avatar.js"
+    },
+    "./terminal": {
+      "types": "./types/terminal.d.ts",
+      "default": "./src/pixel-cli.js"
+    },
+    "./cli": {
+      "types": "./types/terminal.d.ts",
+      "default": "./src/pixel-cli.js"
+    },
+    "./terminal-preview": {
+      "types": "./types/terminal-preview.d.ts",
+      "default": "./src/pixel-terminal.js"
+    },
     "./package.json": "./package.json"
   },
   "types": "./types/index.d.ts",
@@ -37,10 +54,15 @@
     "web-components",
     "pixel",
     "agent",
+    "bot",
+    "avatar",
     "ai",
     "chat",
     "ui",
-    "animation"
+    "animation",
+    "terminal",
+    "cli",
+    "shell"
   ],
   "scripts": {
     "prepack": "node scripts/sync-skills.mjs"

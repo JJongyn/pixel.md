@@ -6,10 +6,13 @@ const EFFECT_CSS = `
   .content{position:relative;z-index:1}
   canvas{position:absolute;left:calc(-1 * var(--fx-bleed));top:calc(-1 * var(--fx-bleed));z-index:2;display:block;pointer-events:none;transform-origin:center center;backface-visibility:visible;will-change:transform}
   :host([variant="hop"]) .wash,:host([variant="bevel"]) .wash,:host([variant="tilt"]) .wash,:host([variant="prism"]) .wash,:host([variant="anchor"]) .wash{display:none}
+  :host([variant="car"]) .wash,:host([variant="car-working"]) .wash,:host([variant="cat"]) .wash,:host([variant="cat-working"]) .wash{display:none}
   :host([paused]) .wash{opacity:.38}
 `;
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+const SCENE_VARIANTS = new Set(["car", "car-working", "cat", "cat-working"]);
+const sceneBleed = variant => variant === "cat" || variant === "cat-working" ? 28 : 24;
 
 class PixelChatEffect extends HTMLElementBase {
   static get observedAttributes() { return ["variant", "speed", "intensity", "paused"]; }
@@ -29,6 +32,8 @@ class PixelChatEffect extends HTMLElementBase {
 
   connectedCallback() {
     this.rotationStart = performance.now();
+    this.sceneStart = this.rotationStart;
+    this.bleed = SCENE_VARIANTS.has(this.getAttribute("variant")) ? sceneBleed(this.getAttribute("variant")) : 16;
     this.shadowRoot.innerHTML = `<style>${EFFECT_CSS}</style><div class="wash" aria-hidden="true"></div><div class="content"><slot></slot></div><canvas aria-hidden="true"></canvas>`;
     this.canvas = this.shadowRoot.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d", { alpha: true });
@@ -36,6 +41,7 @@ class PixelChatEffect extends HTMLElementBase {
     this.resizeObserver.observe(this);
     this.intersectionObserver = new IntersectionObserver(entries => {
       this.isInView = entries[0]?.isIntersecting ?? true;
+      if (this.isInView && SCENE_VARIANTS.has(this.getAttribute("variant"))) this.sceneStart = performance.now();
       this.updateAnimation();
     }, { rootMargin: "100px" });
     this.intersectionObserver.observe(this);
@@ -55,6 +61,11 @@ class PixelChatEffect extends HTMLElementBase {
 
   attributeChangedCallback(name) {
     if (!this.isConnected) return;
+    if (name === "variant") {
+      const nextBleed = SCENE_VARIANTS.has(this.getAttribute("variant")) ? sceneBleed(this.getAttribute("variant")) : 16;
+      if (nextBleed !== this.bleed) { this.bleed = nextBleed; this.resize(); }
+      if (SCENE_VARIANTS.has(this.getAttribute("variant"))) this.sceneStart = performance.now();
+    }
     if (name === "variant" && ["bevel", "tilt", "prism"].includes(this.getAttribute("variant"))) this.rotationStart = performance.now();
     this.updateAnimation();
     this.draw(performance.now());
@@ -70,6 +81,8 @@ class PixelChatEffect extends HTMLElementBase {
     this.height = height;
     const cssWidth = width + this.bleed * 2;
     const cssHeight = height + this.bleed * 2;
+    this.canvas.style.left = -this.bleed + "px";
+    this.canvas.style.top = -this.bleed + "px";
     const dpr = Math.min(2, devicePixelRatio || 1);
     this.canvas.style.width = cssWidth + "px";
     this.canvas.style.height = cssHeight + "px";
@@ -138,7 +151,12 @@ class PixelChatEffect extends HTMLElementBase {
     const t = this.motion.matches ? 900 : now * this.speed;
     const strength = this.intensity;
     const variant = this.getAttribute("variant") || "orbit";
-    if (variant === "bevel" || variant === "tilt" || variant === "prism") {
+    if (SCENE_VARIANTS.has(variant)) {
+      this.canvas.style.transform = "";
+      this.canvas.style.zIndex = "2";
+      this.canvas.style.opacity = "";
+      this.drawScene(now, strength, variant);
+    } else if (variant === "bevel" || variant === "tilt" || variant === "prism") {
       // Restart the full-turn variants at a readable angle. Prism uses a
       // smaller centered rock so its diagonal corners stay near the input.
       const elapsed = Math.max(0, now - (this.rotationStart || now));
@@ -291,6 +309,65 @@ class PixelChatEffect extends HTMLElementBase {
     for (let d = 0; d < perimeter; d += 11) {
       const [x, y] = this.roundedPoint(d, 1);
       this.square(x - .5, y - .5, 1, "#9aad9b", .2 * strength);
+    }
+  }
+
+  drawScene(now, strength, variant) {
+    const scenes = {
+      car: { scale: 3, speed: .018, colors: { "1": "#e8bd79", "2": "#b9d7ef", "3": "#d99c52", "4": "#c7d8c5" }, frames: [["...111...", "..12221..", ".3333333.", "333333333", ".4.....4."], ["...111...", "..12221..", ".3333333.", "333333333", "..4...4.."]] },
+      "car-working": { scale: 3, speed: .037, colors: { "1": "#e8bd79", "2": "#b9d7ef", "3": "#d99c52", "4": "#ffc66e", "5": "#ef7959" }, frames: [["...111...", "..12221..", ".3333333.", "333333333", ".4.....4."], ["...111...", "..12221..", ".3333333.", "333333333", "..4...4.."]] },
+      cat: { scale: 2, colors: { "1": "#d8cbb9", "2": "#9f9181", "3": "#756158", "4": "#d98b86", "5": "#f5e6d4" }, frames: [["...1...1...", "..111.111..", ".111111111.", "11111111111", "11133.33.11", "11111111111", "11111411111", "11111111111", "...22222...", ".22.....22.", "..22...22.."], ["...1...1...", "..111.111..", ".111111111.", "11111111111", "11133.33.11", "11111111111", "11111411111", "11111111111", "...22222...", ".22.....22.", "..22...22.."]] },
+      "cat-working": { scale: 2, colors: { "1": "#d8cbb9", "2": "#9f9181", "3": "#756158", "4": "#d98b86", "5": "#f5e6d4", "6": "#dc9145", "7": "#f2c77e" }, frames: [["...1...1...", "..111.111..", ".111111111.", "11111111111", "11331113311", "11531113511", "11111411111", "1111.4.1111", "...22222...", ".22.666.22.", "..22.77722."], ["...1...1...", "..111.111..", ".111111111.", "11111111111", "11331113311", "11531113511", "11111411111", "11114411111", "...22222...", ".22.666.22.", "..22.77722."], ["...1...1...", "..111.111..", ".111111111.", "11111111111", "11331113311", "11531113511", "11111411111", "1111.4.1111", "...22222...", ".22.666.22.", "..22.77722."]] }
+    };
+    const scene = scenes[variant];
+    if (!scene) return;
+    const elapsed = Math.max(0, now - this.sceneStart);
+    const frame = scene.frames[Math.floor(elapsed / (variant === "cat-working" ? 145 : 220)) % scene.frames.length];
+    const scale = scene.scale;
+    const spriteWidth = Math.max(...frame.map(row => row.length)) * scale;
+    const spriteHeight = frame.length * scale;
+    const isCar = variant.startsWith("car");
+    const path = this.width + this.bleed * 2 + spriteWidth;
+    const progress = (elapsed * (scene.speed || .037)) % path;
+    const travelX = -spriteWidth + progress;
+    const x = this.motion.matches || !isCar ? this.bleed + (this.width - spriteWidth) / 2 : travelX;
+    // Cats perch on the input's top rim; car sprites travel through the space above it.
+    const y = isCar ? Math.max(0, this.bleed - spriteHeight - 1) : Math.max(0, this.bleed - spriteHeight + 2);
+    frame.forEach((row, rowIndex) => [...row].forEach((pixel, columnIndex) => {
+      if (pixel === ".") return;
+      this.square(x + columnIndex * scale, y + rowIndex * scale, scale, scene.colors[pixel], strength);
+    }));
+    if (variant === "cat") {
+      // A sleepy pixel bubble grows from the nose, pops into four tiny glints,
+      // then rests briefly before the next gentle cycle.
+      const cycle = elapsed % 3600;
+      const noseX = x + spriteWidth / 2;
+      const noseY = y + scale * 6.5;
+      if (cycle < 2000) {
+        const grow = cycle / 2000;
+        const radius = 4 + grow * 7;
+        const bubbleY = noseY - radius - 2;
+        for (let point = 0; point < 8; point++) {
+          const angle = point * Math.PI / 4;
+          this.square(noseX + Math.cos(angle) * radius - 1, bubbleY + Math.sin(angle) * radius - 1, 2, "#c6ddd5", (.68 + grow * .24) * strength);
+        }
+        this.square(noseX - radius * .45 - 1, bubbleY - radius * .45 - 1, 2, "#fff4df", (.72 + grow * .24) * strength);
+      } else if (cycle < 2450) {
+        const pop = (cycle - 2000) / 450;
+        for (let point = 0; point < 4; point++) {
+          const angle = point * Math.PI / 2 + Math.PI / 4;
+          const distance = 2 + pop * 5;
+          this.square(noseX + Math.cos(angle) * distance - 1, noseY - 2 + Math.sin(angle) * distance - 1, 2, "#c6ddd5", (1 - pop) * .9 * strength);
+        }
+      }
+    }
+    if (variant === "car-working") {
+      // A compact two-color exhaust flickers behind the moving car.
+      const flicker = Math.floor(elapsed / 95) % 2;
+      const flameX = x - 4;
+      const flameY = y + Math.round(spriteHeight * .68);
+      this.square(flameX, flameY, 3, scene.colors[flicker ? "4" : "5"], .92 * strength);
+      this.square(flameX - 4, flameY + (flicker ? 0 : 3), 3, scene.colors[flicker ? "5" : "4"], .75 * strength);
     }
   }
 }

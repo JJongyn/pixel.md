@@ -9,15 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script type="module" src="./pixel.md/src/pixel-agent-status.js?v=2"></script>
-  <script type="module" src="./pixel.md/src/pixel-chat-effect.js?v=26"></script>
+  <script type="module" src="./pixel.md/src/pixel-chat-effect.js?v=42"></script>
   <script type="module" src="./pixel.md/src/pixel-ui-element.js?v=9"></script>
+  <script type="module" src="./pixel.md/src/pixel-bot-avatar.js?v=2"></script>
+  <script type="module" src="./pixel.md/src/pixel-terminal.js"></script>
   <link rel="stylesheet" href="./site.css" />
 </head>
 <body>
-  <header class="site-header"><div class="header-inner"><a class="brand" href="#library"><i class="brand-mark" aria-hidden="true"></i><span>pixel.md</span></a><span class="header-count">35 LIVE PREVIEWS</span></div></header>
-  <main>
-    <div class="intro"><div><span class="eyebrow">INTERFACE COMPONENTS FOR AI PRODUCTS</span><h1>Small pixels. Clear intent.</h1></div><p>Choose a component, try it live, copy the code.</p></div>
-    <section class="library" id="library"><div class="library-heading"><span>COMPONENTS</span><span>01 — 03</span></div><div class="component-tabs" role="tablist" aria-label="Component families"><button id="indicator-tab" type="button" role="tab" aria-controls="indicator-panel" aria-selected="true" data-tab="indicator"><span>01</span>Indicators <small>10</small></button><button id="composer-tab" type="button" role="tab" aria-controls="composer-panel" aria-selected="false" data-tab="composer" tabindex="-1"><span>02</span>Chat effects <small>6</small></button><button id="elements-tab" type="button" role="tab" aria-controls="elements-panel" aria-selected="false" data-tab="elements" tabindex="-1"><span>03</span>Elements <small>19</small></button></div>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="#library"><i class="brand-mark" aria-hidden="true"></i><span>pixel.md</span></a><div class="header-actions"><a class="github-link" href="https://github.com/JJongyn/pixel.md" target="_blank" rel="noreferrer">GitHub ↗</a><span class="header-count">61 LIVE PREVIEWS</span></div></div></header>
+  <main id="library">
+    <div class="intro"><div><span class="eyebrow">INTERFACE COMPONENTS FOR AI · AGENT · CLI</span><h1>Small pixels. Clear intent.</h1></div><p>Choose a component, try it live, copy the code.</p></div>
+    <div class="install-bar" aria-label="Install pixel.md"><div class="install-command"><span class="install-prompt">$</span><code>npm install pixel.md</code><span class="npm-status">NOT ON NPM YET</span></div><button class="install-copy" type="button" data-copy-install aria-label="Copy npm install command">Copy</button><a class="install-github" href="https://github.com/JJongyn/pixel.md" target="_blank" rel="noreferrer">View on GitHub <span aria-hidden="true">↗</span></a></div>
+    <section class="library"><div class="library-heading"><span>COMPONENTS</span><span>01 — 05</span></div><div class="component-tabs" role="tablist" aria-label="Component families"><button id="indicator-tab" type="button" role="tab" aria-controls="indicator-panel" aria-selected="true" data-tab="indicator"><span>01</span>Indicators <small>10</small></button><button id="composer-tab" type="button" role="tab" aria-controls="composer-panel" aria-selected="false" data-tab="composer" tabindex="-1"><span>02</span>Chat effects <small>10</small></button><button id="elements-tab" type="button" role="tab" aria-controls="elements-panel" aria-selected="false" data-tab="elements" tabindex="-1"><span>03</span>Elements <small>19</small></button><button id="bots-tab" type="button" role="tab" aria-controls="bots-panel" aria-selected="false" data-tab="bots" tabindex="-1"><span>04</span>Bots <small>8</small></button><button id="terminal-tab" type="button" role="tab" aria-controls="terminal-panel" aria-selected="false" data-tab="terminal" tabindex="-1"><span>05</span>Terminal <small>14</small></button></div>
       <div class="component-panel" id="indicator-panel" role="tabpanel" aria-labelledby="indicator-tab"><div class="panel-head"><div><h3>Indicator</h3></div><span class="panel-count">10 STATES · ONE API</span></div><div class="status-grid">
         <article class="state-card"><div class="state-card-head"><span class="state-code">01 / THINKING</span></div><div class="state-stage"><pixel-agent-status size="large" state="thinking" label="Thinking…" detail="Connecting ideas"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="thinking" label="Thinking through request" detail="Finding an approach"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
         <article class="state-card"><div class="state-card-head"><span class="state-code">02 / SEARCHING</span></div><div class="state-stage"><pixel-agent-status size="large" state="searching" label="Searching…" detail="Finding a useful signal"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="searching" label="Searching docs" detail="4 sources"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
@@ -31,13 +34,17 @@
         <article class="state-card"><div class="state-card-head"><span class="state-code">10 / RESPONDING</span></div><div class="state-stage"><pixel-agent-status size="large" state="responding" label="Responding…" detail="Thought becoming words"></pixel-agent-status></div><div class="copy-row"><button class="copy-code" data-copy='&lt;pixel-agent-status state="responding" label="Responding" detail="Almost ready"&gt;&lt;/pixel-agent-status&gt;'>Copy code</button></div></article>
       </div><details class="usage"><summary>Install &amp; usage <span>Show code ↗</span></summary><div class="usage-body"><pre>&lt;script type="module"&gt;import "pixel.md/indicator";&lt;/script&gt;
 &lt;pixel-agent-status state="thinking" label="Thinking…"&gt;&lt;/pixel-agent-status&gt;</pre><button class="copy-code" data-copy="indicator">Copy code</button></div></details></div>
-      <div class="component-panel" id="composer-panel" role="tabpanel" aria-labelledby="composer-tab" hidden><div class="panel-head"><div><h3>Chat effects</h3><p>Animated pixels for your own chat input.</p></div><span class="panel-count">6 EFFECTS · ONE WRAPPER</span></div><div class="composer-grid">
+      <div class="component-panel" id="composer-panel" role="tabpanel" aria-labelledby="composer-tab" hidden><div class="panel-head"><div><h3>Chat effects</h3><p>Animated pixels around your existing chat input, from quiet frames to tiny moving scenes.</p></div><span class="panel-count">10 EFFECTS · ONE WRAPPER</span></div><div class="composer-grid">
         <article class="composer-card" data-style="orbit"><div class="composer-card-header"><div><b>01 / Orbit</b><small>Two signals · continuous perimeter</small></div></div><div class="composer-stage"><pixel-chat-effect variant="orbit"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="orbit">Copy code</button></div></article>
         <article class="composer-card" data-style="hop"><div class="composer-card-header"><div><b>02 / Hop</b><small>Three pixels · shallow bounce</small></div></div><div class="composer-stage"><pixel-chat-effect variant="hop"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="hop">Copy code</button></div></article>
         <article class="composer-card" data-style="anchor"><div class="composer-card-header"><div><b>03 / Anchor</b><small>Colored corners · breathing frame</small></div></div><div class="composer-stage"><pixel-chat-effect variant="anchor"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="anchor">Copy code</button></div></article>
         <article class="composer-card" data-style="bevel"><div class="composer-card-header"><div><b>04 / Bevel</b><small>3D pixel frame · vertical axis</small></div></div><div class="composer-stage"><pixel-chat-effect variant="bevel"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="bevel">Copy code</button></div></article>
         <article class="composer-card" data-style="tilt"><div class="composer-card-header"><div><b>05 / Tilt</b><small>3D pixel frame · horizontal axis</small></div></div><div class="composer-stage"><pixel-chat-effect variant="tilt"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="tilt">Copy code</button></div></article>
         <article class="composer-card" data-style="prism"><div class="composer-card-header"><div><b>06 / Prism</b><small>Pixel frame · diagonal axis</small></div></div><div class="composer-stage"><pixel-chat-effect variant="prism"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="prism">Copy code</button></div></article>
+        <article class="composer-card" data-style="car"><div class="composer-card-header"><div><b>07 / Roadtrip · IDLE</b><small>Slow cruise · waiting for your message</small></div></div><div class="composer-stage"><pixel-chat-effect variant="car"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="scene-car">Copy code</button></div></article>
+        <article class="composer-card" data-style="car-working"><div class="composer-card-header"><div><b>08 / Roadtrip · WORKING</b><small>Same drive · pixel exhaust while the agent works</small></div></div><div class="composer-stage"><pixel-chat-effect variant="car-working"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="scene-car-working">Copy code</button></div></article>
+        <article class="composer-card" data-style="cat"><div class="composer-card-header"><div><b>09 / Cat nap · IDLE</b><small>Sleepy paws resting on the input rim</small></div></div><div class="composer-stage"><pixel-chat-effect variant="cat"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="scene-cat">Copy code</button></div></article>
+        <article class="composer-card" data-style="cat-working"><div class="composer-card-header"><div><b>10 / Churro time · WORKING</b><small>Busy paws · diligently licking a churro</small></div></div><div class="composer-stage"><pixel-chat-effect variant="cat-working"><div class="sample-composer"><textarea rows="2" aria-label="Try the chat effect" placeholder="Type here to try the effect…"></textarea><button type="button" aria-label="Send demo message">↗</button></div></pixel-chat-effect></div><div class="composer-card-footer"><button class="copy-code" data-copy="scene-cat-working">Copy code</button></div></article>
       </div><details class="usage"><summary>Install &amp; usage <span>Show code ↗</span></summary><div class="usage-body"><pre>&lt;script type="module"&gt;import "pixel.md/chat-effect";&lt;/script&gt;
 &lt;pixel-chat-effect variant="orbit"&gt;
   &lt;your-chat-input&gt;&lt;/your-chat-input&gt;
@@ -65,11 +72,64 @@
         <article class="element-card" data-element-group="control"><div class="element-card-head"><div><b>19 / Workflow stepper</b></div><em>STEPS</em></div><pixel-ui-element variant="steps"></pixel-ui-element><div class="element-card-foot"><button class="copy-code" data-copy="element-steps">Copy code</button></div></article>
       </div><details class="usage"><summary>Install &amp; usage <span>Show code ↗</span></summary><div class="usage-body"><pre>&lt;script type="module"&gt;import "pixel.md/elements";&lt;/script&gt;
 &lt;pixel-ui-element variant="toast"&gt;&lt;/pixel-ui-element&gt;</pre><button class="copy-code" data-copy="elements">Copy code</button></div></details></div>
+      <div class="component-panel" id="bots-panel" role="tabpanel" aria-labelledby="bots-tab" hidden>
+        <div class="panel-head"><div><h3>Pixel bots</h3><p>Small characters for assistants, agent teams, and chat bylines.</p></div><span class="panel-count">8 AVATARS · 6 STATES</span></div>
+        <div class="bot-state-controls" role="group" aria-label="Preview bot states"><span>TRY A STATE</span><button type="button" data-bot-state="idle" aria-pressed="true">Idle</button><button type="button" data-bot-state="thinking" aria-pressed="false">Thinking</button><button type="button" data-bot-state="working" aria-pressed="false">Working</button><button type="button" data-bot-state="speaking" aria-pressed="false">Speaking</button><button type="button" data-bot-state="success" aria-pressed="false">Done</button><button type="button" data-bot-state="sleeping" aria-pressed="false">Sleep</button></div>
+        <div class="bot-grid">
+          <article class="bot-card"><div class="bot-card-stage"><pixel-bot-avatar variant="mote" label="San" state="idle" size="large"></pixel-bot-avatar></div><div class="bot-card-copy"><b>San</b><small>Everyday assistant</small></div><div class="bot-card-foot"><button class="copy-code" data-copy="bot-mote">Copy code</button></div></article>
+          <article class="bot-card"><div class="bot-card-stage"><pixel-bot-avatar variant="sprout" label="Woni" state="idle" size="large"></pixel-bot-avatar></div><div class="bot-card-copy"><b>Woni</b><small>Research &amp; discovery</small></div><div class="bot-card-foot"><button class="copy-code" data-copy="bot-sprout">Copy code</button></div></article>
+          <article class="bot-card"><div class="bot-card-stage"><pixel-bot-avatar variant="spark" label="Duri" state="idle" size="large"></pixel-bot-avatar></div><div class="bot-card-copy"><b>Duri</b><small>Ideas &amp; quick tasks</small></div><div class="bot-card-foot"><button class="copy-code" data-copy="bot-spark">Copy code</button></div></article>
+          <article class="bot-card"><div class="bot-card-stage"><pixel-bot-avatar variant="wisp" label="Bomi" state="idle" size="large"></pixel-bot-avatar></div><div class="bot-card-copy"><b>Bomi</b><small>Background worker</small></div><div class="bot-card-foot"><button class="copy-code" data-copy="bot-wisp">Copy code</button></div></article>
+          <article class="bot-card"><div class="bot-card-stage"><pixel-bot-avatar variant="gear" label="Taeo" state="idle" size="large"></pixel-bot-avatar></div><div class="bot-card-copy"><b>Taeo</b><small>Tools &amp; operations</small></div><div class="bot-card-foot"><button class="copy-code" data-copy="bot-gear">Copy code</button></div></article>
+          <article class="bot-card"><div class="bot-card-stage"><pixel-bot-avatar variant="comet" label="Nari" state="idle" size="large"></pixel-bot-avatar></div><div class="bot-card-copy"><b>Nari</b><small>Fast responses</small></div><div class="bot-card-foot"><button class="copy-code" data-copy="bot-comet">Copy code</button></div></article>
+          <article class="bot-card"><div class="bot-card-stage"><pixel-bot-avatar variant="prism" label="Haru" state="idle" size="large"></pixel-bot-avatar></div><div class="bot-card-copy"><b>Haru</b><small>Analysis &amp; review</small></div><div class="bot-card-foot"><button class="copy-code" data-copy="bot-prism">Copy code</button></div></article>
+          <article class="bot-card"><div class="bot-card-stage"><pixel-bot-avatar variant="kernel" label="Mino" state="idle" size="large"></pixel-bot-avatar></div><div class="bot-card-copy"><b>Mino</b><small>Agent coordinator</small></div><div class="bot-card-foot"><button class="copy-code" data-copy="bot-kernel">Copy code</button></div></article>
+        </div>
+        <div class="bot-use-grid">
+          <article class="bot-use-card"><span class="bot-use-label">AGENT TEAM</span><div class="bot-team-row"><pixel-bot-avatar variant="sprout" state="working" label="Woni" size="small"></pixel-bot-avatar><div><b>Woni</b><small>Reading 4 sources</small></div><span class="bot-live">ACTIVE</span></div><div class="bot-team-row"><pixel-bot-avatar variant="gear" state="thinking" label="Taeo" size="small"></pixel-bot-avatar><div><b>Taeo</b><small>Preparing the next step</small></div><span class="bot-wait">QUEUED</span></div><div class="bot-team-row"><pixel-bot-avatar variant="wisp" state="sleeping" label="Bomi" size="small"></pixel-bot-avatar><div><b>Bomi</b><small>Waiting for a handoff</small></div><span class="bot-wait">IDLE</span></div></article>
+          <article class="bot-use-card bot-chat-demo"><span class="bot-use-label">IN CONVERSATION</span><div class="bot-user-message">Can you check the latest release notes?</div><div class="bot-reply"><pixel-bot-avatar variant="mote" state="speaking" label="San" size="small"></pixel-bot-avatar><p>I found two changes that affect your setup. Want a short summary?</p></div><div class="bot-reply-meta"><span>SAN</span><span>RESPONDING</span></div></article>
+        </div>
+        <details class="usage"><summary>Install &amp; usage <span>Show code ↗</span></summary><div class="usage-body"><pre>&lt;script type="module"&gt;import "pixel.md/bot";&lt;/script&gt;
+&lt;pixel-bot-avatar variant="mote" state="working" label="San"&gt;&lt;/pixel-bot-avatar&gt;</pre><button class="copy-code" data-copy="bot">Copy code</button></div></details>
+      </div>
+      <div class="component-panel" id="terminal-panel" role="tabpanel" aria-labelledby="terminal-tab" hidden>
+        <div class="panel-head"><div><h3>Terminal CLI</h3><p>Node.js helpers for real CLI output. Previews show the pixel style; copied code runs in your terminal.</p></div><span class="panel-count">14 PIXEL PATTERNS · NODE API</span></div>
+        <div class="element-grid terminal-grid">
+          <article class="element-card"><div class="element-card-head"><div><b>01 / Command prompt</b></div><em>INPUT</em></div><pixel-terminal variant="prompt" command="pnpm build" label="Command prompt"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-prompt">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>02 / Command output</b></div><em>OUTPUT</em></div><pixel-terminal variant="output" command="pnpm build" label="Build output"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-output">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>03 / Task progress</b></div><em>PROCESS</em></div><pixel-terminal variant="tasks" label="Build steps"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-tasks">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>04 / Run confirmation</b></div><em>GUARDRAIL</em></div><pixel-terminal variant="confirm" label="Deploy confirmation"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-confirm">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>05 / Git diff</b></div><em>CHANGES</em></div><pixel-terminal variant="diff" label="Git diff"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-diff">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>06 / Dev session</b></div><em>SESSION</em></div><pixel-terminal variant="session" command="pnpm dev" label="Development server"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-session">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>07 / Stepped panel</b></div><em>FRAME</em></div><pixel-terminal variant="box" label="Stepped pixel panel"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-box">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>08 / Choice menu</b></div><em>SELECT</em></div><pixel-terminal variant="choices" label="Pixel choice menu"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-choices">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>09 / Workflow rail</b></div><em>STEPS</em></div><pixel-terminal variant="steps" label="Pixel workflow steps"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-steps">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>10 / Pixel meter</b></div><em>USAGE</em></div><pixel-terminal variant="meter" label="Pixel usage meter"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-meter">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>11 / Activity sprite</b></div><em>RUNNING</em></div><pixel-terminal variant="spinner" label="Pixel activity sprite"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-spinner">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>12 / Pixel wave</b></div><em>STREAM</em></div><pixel-terminal variant="wave" label="Pixel wave stream"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-wave">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>13 / Agent fleet</b></div><em>PARALLEL</em></div><pixel-terminal variant="agents" label="Parallel agent status"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-agents">Copy code</button></div></article>
+          <article class="element-card"><div class="element-card-head"><div><b>14 / Stream cursor</b></div><em>GENERATE</em></div><pixel-terminal variant="stream" label="Streaming response"></pixel-terminal><div class="element-card-foot"><button class="copy-code" data-copy="terminal-stream">Copy code</button></div></article>
+        </div>
+        <details class="usage"><summary>Install &amp; usage <span>Show code ↗</span></summary><div class="usage-body"><pre>import { askPixelCommand, pixelOutput } from 'pixel.md/terminal';
+
+const command = await askPixelCommand({ cwd: '~/project' });
+console.log(pixelOutput({ command, status: 'success' }));</pre><button class="copy-code" data-copy="terminal-prompt">Copy code</button></div></details>
+      </div>
     </section>
-    <footer><span>pixel.md</span><span>35 COMPONENT PREVIEWS</span></footer>
+    <footer><span>pixel.md</span><span>61 COMPONENT PREVIEWS</span></footer>
   </main>
   <script type="module">
     const motionBehavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    document.querySelector('[data-copy-install]').addEventListener('click', async event => {
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText('npm install pixel.md');
+        button.textContent = 'Copied ✓';
+        setTimeout(() => button.textContent = 'Copy', 1300);
+      } catch {
+        button.textContent = 'Copy unavailable';
+      }
+    });
     document.querySelectorAll('.sample-composer button').forEach(button => button.addEventListener('click', () => {
       const input = button.previousElementSibling;
       input.value = '';
@@ -77,15 +137,18 @@
     }));
 
     function activateTab(name, scroll = false) {
-      const target = ['indicator', 'composer', 'elements'].includes(name) ? name : 'indicator';
+      const target = ['indicator', 'composer', 'elements', 'bots', 'terminal'].includes(name) ? name : 'indicator';
       document.querySelectorAll('[role=tab]').forEach(button => {
         const active = button.dataset.tab === target;
         button.setAttribute('aria-selected', String(active));
         button.tabIndex = active ? 0 : -1;
       });
+      document.querySelector('#' + target + '-tab')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       document.querySelector('#indicator-panel').hidden = target !== 'indicator';
       document.querySelector('#composer-panel').hidden = target !== 'composer';
       document.querySelector('#elements-panel').hidden = target !== 'elements';
+      document.querySelector('#bots-panel').hidden = target !== 'bots';
+      document.querySelector('#terminal-panel').hidden = target !== 'terminal';
       if (scroll) document.querySelector('#library').scrollIntoView({ behavior: motionBehavior, block: 'start' });
     }
     document.querySelectorAll('[role=tab]').forEach(button => {
@@ -110,10 +173,16 @@
       activateTab(link.dataset.navTab, true);
       history.replaceState(null, '', '#' + link.dataset.navTab);
     }));
-    if (['#composer', '#indicator', '#elements'].includes(location.hash)) activateTab(location.hash.slice(1));
+    if (['#composer', '#indicator', '#elements', '#bots', '#terminal'].includes(location.hash)) activateTab(location.hash.slice(1));
     addEventListener('hashchange', () => {
-      if (['#composer', '#indicator', '#elements'].includes(location.hash)) activateTab(location.hash.slice(1));
+      if (['#composer', '#indicator', '#elements', '#bots', '#terminal'].includes(location.hash)) activateTab(location.hash.slice(1));
     });
+
+    document.querySelectorAll('[data-bot-state]').forEach(button => button.addEventListener('click', () => {
+      const state = button.dataset.botState;
+      document.querySelectorAll('[data-bot-state]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      document.querySelectorAll('#bots-panel .bot-grid pixel-bot-avatar').forEach(avatar => avatar.setAttribute('state', state));
+    }));
 
     document.querySelectorAll('[data-element-filter]').forEach(button => button.addEventListener('click', () => {
       const group = button.dataset.elementFilter;
@@ -129,13 +198,43 @@
     const packageEntry = {
       'pixel-agent-status.js': 'indicator',
       'pixel-chat-effect.js': 'chat-effect',
-      'pixel-ui-element.js': 'elements'
+      'pixel-ui-element.js': 'elements',
+      'pixel-bot-avatar.js': 'bot',
+      'pixel-cli.js': 'terminal',
+      'pixel-terminal.js': 'terminal-preview'
     };
     const moduleTag = file => '<script type="module">import "pixel.md/' + packageEntry[file] + '";</' + 'script>';
     const code = {
       indicator: moduleTag('pixel-agent-status.js') + '\n<pixel-agent-status state="thinking" label="Thinking…"></pixel-agent-status>',
       composer: moduleTag('pixel-chat-effect.js') + '\n<pixel-chat-effect variant="orbit">\n  <your-chat-input></your-chat-input>\n</pixel-chat-effect>',
+      'scene-car': moduleTag('pixel-chat-effect.js') + '\n<pixel-chat-effect variant="car">\n  <your-existing-chat-input></your-existing-chat-input>\n</pixel-chat-effect>',
+      'scene-car-working': moduleTag('pixel-chat-effect.js') + '\n<pixel-chat-effect variant="car-working">\n  <your-existing-chat-input></your-existing-chat-input>\n</pixel-chat-effect>',
+      'scene-cat': moduleTag('pixel-chat-effect.js') + '\n<pixel-chat-effect variant="cat">\n  <your-existing-chat-input></your-existing-chat-input>\n</pixel-chat-effect>',
+      'scene-cat-working': moduleTag('pixel-chat-effect.js') + '\n<pixel-chat-effect variant="cat-working">\n  <your-existing-chat-input></your-existing-chat-input>\n</pixel-chat-effect>',
       elements: moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="toast"></pixel-ui-element>',
+      bot: moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="mote" state="working" label="San"></pixel-bot-avatar>',
+      'terminal-prompt': "import { askPixelCommand, pixelOutput } from 'pixel.md/terminal';\n\nconst command = await askPixelCommand({ cwd: '~/project' });\n// Validate before passing this to your command runner.\nconsole.log(pixelOutput({ command, status: 'success' }));",
+      'terminal-output': "import { pixelOutput } from 'pixel.md/terminal';\n\nconsole.log(pixelOutput({\n  command: 'pnpm build',\n  lines: ['24 modules bundled'],\n  status: 'success',\n  duration: '1.8s'\n}));",
+      'terminal-tasks': "import { pixelProgress, pixelTaskList } from 'pixel.md/terminal';\n\nconsole.log(pixelProgress('build', 2, { max: 3 }));\nconsole.log(pixelTaskList(['resolve dependencies', 'compile 12 files', 'verify output'], { active: 1 }));",
+      'terminal-confirm': "import { pixelConfirm } from 'pixel.md/terminal';\n\nconst approved = await pixelConfirm('Deploy changed files to production?');\nif (approved) {\n  // Run through your validated deployment handler.\n}",
+      'terminal-diff': "import { pixelDiff } from 'pixel.md/terminal';\n\nconsole.log(pixelDiff(['- old line', '+ new line']));",
+      'terminal-session': "import { pixelSession } from 'pixel.md/terminal';\n\nconsole.log(pixelSession({ name: 'dev server', state: 'running', url: 'localhost:5173', pid: 2481 }));",
+      'terminal-box': "import { pixelBox } from 'pixel.md/terminal';\n\nconsole.log(pixelBox('BUILD COMPLETE', ['12 files compiled', '0 errors · 1.42s'], { tone: 'mint' }));",
+      'terminal-choices': "import { pixelChoices, askPixelChoice } from 'pixel.md/terminal';\n\nconsole.log(pixelChoices(['Development', 'Production', 'Preview'], { selected: 1 }));\nconst target = await askPixelChoice(['Development', 'Production', 'Preview'], { selected: 1 });",
+      'terminal-steps': "import { pixelSteps } from 'pixel.md/terminal';\n\nconsole.log(pixelSteps(['Plan', 'Build', 'Ship'], { active: 1 }));",
+      'terminal-meter': "import { pixelMeter } from 'pixel.md/terminal';\n\nconsole.log(pixelMeter('CONTEXT WINDOW', 68, { max: 100, columns: 16, rows: 2 }));",
+      'terminal-spinner': "import { withPixelSpinner } from 'pixel.md/terminal';\n\nawait withPixelSpinner('INDEXING FILES', () => indexWorkspace());",
+      'terminal-wave': "import { pixelWaveFrame, withPixelWave } from 'pixel.md/terminal';\n\nconsole.log(pixelWaveFrame('TOKEN FLOW', 3));\nawait withPixelWave('GENERATING RESPONSE', () => generateResponse());",
+      'terminal-agents': "import { pixelAgents } from 'pixel.md/terminal';\n\nconsole.log(pixelAgents([\n  { name: 'planner', state: 'done', detail: '1.2s' },\n  { name: 'researcher', state: 'thinking', detail: '8s' },\n  { name: 'builder', state: 'running', detail: '3/5 files' }\n]));",
+      'terminal-stream': "import { pixelStream } from 'pixel.md/terminal';\n\n// Call with each partial response from your model stream.\nprocess.stdout.write('\\r' + pixelStream(partialText, { frame: chunkIndex }));",
+      'bot-mote': moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="mote" state="idle" label="San"></pixel-bot-avatar>',
+      'bot-sprout': moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="sprout" state="working" label="Woni"></pixel-bot-avatar>',
+      'bot-spark': moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="spark" state="thinking" label="Duri"></pixel-bot-avatar>',
+      'bot-wisp': moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="wisp" state="sleeping" label="Bomi"></pixel-bot-avatar>',
+      'bot-gear': moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="gear" state="working" label="Taeo"></pixel-bot-avatar>',
+      'bot-comet': moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="comet" state="success" label="Nari"></pixel-bot-avatar>',
+      'bot-prism': moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="prism" state="thinking" label="Haru"></pixel-bot-avatar>',
+      'bot-kernel': moduleTag('pixel-bot-avatar.js') + '\n<pixel-bot-avatar variant="kernel" state="idle" label="Mino"></pixel-bot-avatar>',
       'element-toggle': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="toggle" label="Background actions"></pixel-ui-element>',
       'element-count': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="count" label="Tasks completed" value="128"></pixel-ui-element>',
       'element-toast': moduleTag('pixel-ui-element.js') + '\n<pixel-ui-element variant="toast"></pixel-ui-element>',
