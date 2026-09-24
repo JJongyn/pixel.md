@@ -12,7 +12,7 @@
       "name": "pixel-md",
       "source": "./plugins/pixel-md",
       "description": "Pixel UI skills for AI, agent, chat, and terminal interfaces.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "JJongyn",
         "url": "https://github.com/JJongyn"

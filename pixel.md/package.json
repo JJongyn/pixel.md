@@ -1,6 +1,6 @@
 {
   "name": "pixel.md",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Small pixel UI components for AI and agent interfaces",
   "type": "module",
   "license": "MIT",

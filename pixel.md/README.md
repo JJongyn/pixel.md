@@ -13,17 +13,19 @@
   <a href="https://jjongyn.github.io/pixel.md/"><img alt="Live gallery" src="https://img.shields.io/badge/demo-live%20gallery-355c43" /></a>
 </p>
 
-![pixel.md component preview](https://raw.githubusercontent.com/JJongyn/pixel.md/main/pixel.md/assets/overview.png)
-
-pixel.md is a small, dependency-free UI library for AI and agent products. Add a quiet pixel signal to an existing chat, expose what an agent is doing, or give a terminal CLI a consistent visual language.
-
-The browser components are native Custom Elements, so they work in plain JavaScript and frameworks that support web components. The terminal helpers are a separate Node.js entry point.
+pixel.md is a small, dependency-free component library for AI and agent products. Add one useful pixel detail to the interface you already built.
 
 ## Install
 
 ```bash
 npm install pixel.md
 ```
+
+[Live gallery](https://jjongyn.github.io/pixel.md/) · [npm](https://www.npmjs.com/package/pixel.md) · [GitHub](https://github.com/JJongyn/pixel.md)
+
+![A quick look at pixel.md indicators, chat effects, and terminal helpers](assets/quick-look.gif)
+
+The gallery lets you try every component and copy its individual usage snippet. Browser components are native Custom Elements; terminal helpers are separate Node.js functions. You add only the pieces you import.
 
 ## Quick start
 
@@ -60,6 +62,23 @@ import 'pixel.md/chat-effect';
 | `pixel.md/terminal-preview` | `<pixel-terminal>` | Browser preview of fourteen terminal patterns |
 
 Import `pixel.md` to register all four browser elements at once, or use the individual subpaths above to keep imports explicit.
+
+## Copy one component
+
+Every preview in the [live gallery](https://jjongyn.github.io/pixel.md/) has a **Copy code** action. It copies that preview's import and usage only, so you can add a single component to your existing interface.
+
+For example, add only a context meter to an existing Node.js CLI:
+
+```js
+import { pixelMeter } from 'pixel.md/terminal';
+
+console.log(pixelMeter('CONTEXT WINDOW', 68, {
+  max: 100,
+  columns: 16,
+  rows: 2,
+  tone: 'mint'
+}));
+```
 
 ## Connect real agent state
 

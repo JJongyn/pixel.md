@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pixel.md — quick look</title>
+  <script type="module" src="../src/pixel-agent-status.js"></script>
+  <script type="module" src="../src/pixel-chat-effect.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #e8eee7; background: #111512; font: 14px/1.5 ui-sans-serif, system-ui, sans-serif; }
+    main { width: 1200px; height: 675px; padding: 42px 52px 34px; overflow: hidden; }
+    header { display:flex; justify-content:space-between; align-items:center; padding-bottom:20px; border-bottom:1px solid #303a32; }
+    .brand { display:flex; align-items:center; gap:10px; font-size:14px; font-weight:650; letter-spacing:-.03em; }
+    .mark { width:17px; height:17px; background:#28372c; position:relative; }
+    .mark:after { content:""; position:absolute; width:3px; height:3px; left:7px; top:7px; background:#b5e98d; box-shadow:-4px 4px #b5e98d,4px -4px #b5e98d; }
+    .install { color:#a8b6a8; font:11px ui-monospace,monospace; }
+    .install b { color:#b5e98d; font-weight:500; }
+    .intro { display:flex; align-items:end; justify-content:space-between; padding:25px 0 24px; }
+    .eyebrow { color:#a5c69a; font:9px ui-monospace,monospace; letter-spacing:.16em; }
+    h1 { margin:8px 0 0; font-size:34px; line-height:1.05; font-weight:550; letter-spacing:-.055em; }
+    .intro p { margin:0 0 2px; color:#9aa79b; font-size:12px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    article { height:382px; border:1px solid #39443a; background:#171c18; }
+    .card-head { height:45px; padding:0 14px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #303a32; color:#dce5d9; font:10px ui-monospace,monospace; }
+    .number { color:#879687; }
+    .stage { height:270px; display:flex; align-items:center; justify-content:center; padding:22px; background:#1b221d; }
+    .stage.pixel-status { color:#e8eee7; }
+    pixel-agent-status { --pixel-ink:#e6ede6; --pixel-muted:#9baa9a; --pixel-accent:#b5e98d; }
+    .chat-wrap { width:100%; }
+    .chat { min-height:96px; display:flex; align-items:end; gap:9px; padding:13px 14px; border:1px solid #48554a; border-radius:10px; background:#202722; color:#dfe8dd; }
+    .chat span { flex:1; padding-bottom:5px; color:#8f9b90; font-size:11px; }
+    .send { width:26px; height:26px; display:grid; place-items:center; border:1px solid #5a6b5a; border-radius:5px; color:#d6e4d0; font:13px ui-monospace,monospace; }
+    .meter { width:100%; color:#c2d8b5; font:12px/1.9 ui-monospace,monospace; }
+    .meter-top { display:flex; justify-content:space-between; margin-bottom:9px; color:#e3eadf; font-size:10px; }
+    .meter-top strong { color:#b5e98d; font-weight:500; }
+    .meter-grid { letter-spacing:1px; white-space:pre; line-height:1.55; }
+    .meter-grid .off { color:#36423a; }
+    .meter-note { margin-top:10px; color:#869487; font-size:9px; }
+    .card-foot { height:65px; padding:10px 14px; border-top:1px solid #303a32; color:#8f9c8f; font:9px/1.8 ui-monospace,monospace; }
+    .card-foot strong { color:#b5e98d; font-weight:400; }
+    footer { display:flex; justify-content:space-between; padding-top:16px; color:#869387; font:9px ui-monospace,monospace; letter-spacing:.04em; }
+    footer b { color:#c2d3bc; font-weight:400; }
+  </style>
+</head>
+<body>
+  <main>
+    <header><div class="brand"><i class="mark"></i><span>pixel.md</span></div><div class="install">$ <b>npm install pixel.md</b></div></header>
+    <section class="intro"><div><span class="eyebrow">SMALL PIXELS · YOUR EXISTING UI</span><h1>Small pixels. Clear intent.</h1></div><p>Choose one detail. Keep the interface yours.</p></section>
+    <section class="grid">
+      <article><div class="card-head"><span>Agent activity</span><span class="number">01 / INDICATOR</span></div><div class="stage pixel-status"><pixel-agent-status theme="dark" size="large" state="thinking" label="Thinking…" detail="Connecting ideas"></pixel-agent-status></div><div class="card-foot"><strong>import</strong> 'pixel.md/indicator'<br>&lt;pixel-agent-status state="thinking"&gt;</div></article>
+      <article><div class="card-head"><span>Chat input effect</span><span class="number">02 / CHAT EFFECT</span></div><div class="stage"><div class="chat-wrap"><pixel-chat-effect variant="orbit"><div class="chat"><span>Ask your agent anything…</span><i class="send">↗</i></div></pixel-chat-effect></div></div><div class="card-foot"><strong>import</strong> 'pixel.md/chat-effect'<br>&lt;pixel-chat-effect variant="orbit"&gt;</div></article>
+      <article><div class="card-head"><span>CLI usage meter</span><span class="number">03 / TERMINAL</span></div><div class="stage"><div class="meter"><div class="meter-top"><span>CONTEXT WINDOW</span><strong>68%</strong></div><div class="meter-grid">▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰<br>▰▰▰▰▰▰▱▱▱▱▱▱▱▱▱▱</div><div class="meter-note">one helper · your existing CLI</div></div></div><div class="card-foot"><strong>import</strong> { pixelMeter } from 'pixel.md/terminal'<br>pixelMeter('CONTEXT WINDOW', 68, { columns: 16, rows: 2 })</div></article>
+    </section>
+    <footer><span>NO FRAMEWORK REQUIRED · NO FULL UI REPLACEMENT</span><b>npm · GitHub · LIVE GALLERY ↗</b></footer>
+  </main>
+</body>
+</html>
