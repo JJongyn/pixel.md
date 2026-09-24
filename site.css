@@ -136,3 +136,25 @@ footer { display: flex; justify-content: space-between; gap: 12px; margin-top: 5
 @media (max-width: 570px) { .header-count { font-size: 8px; } .header-actions { gap: 12px; } .github-link { font-size: 10px; } .status-grid, .element-grid { grid-template-columns: 1fr; } .component-tabs { gap: 12px; overflow-x: auto; } .component-tabs button { flex: 0 0 auto; gap: 5px; font-size: 10px; } .component-tabs button small { margin-left: 1px; padding: 2px 4px; } .panel-count { display: none; } .usage-body { display: block; } .usage .copy-code { margin-top: 8px; } .bot-card { grid-template-columns: 66px minmax(0,1fr); grid-template-rows: 72px auto; } .bot-card-stage { min-height: 97px; } .bot-card-stage pixel-bot-avatar { --bot-size: 48px; } .bot-card-copy { padding-right: 7px; padding-left: 10px; } .bot-card-foot { padding-right: 10px; } .bot-use-card { padding: 14px; } }
 @media (max-width: 370px) { .component-tabs button > span { display: none; } .header-count { display: none; } .composer-stage { padding: 28px 22px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition-duration: .01ms !important; } }
+
+.quickstart { margin: -24px 0 32px; border: 1px solid var(--line); background: #fff; color: #425343; }
+.quickstart summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 43px; padding: 10px 14px; font-size: 10px; cursor: pointer; list-style: none; }
+.quickstart summary::-webkit-details-marker { display: none; }
+.quickstart summary span { color: #849481; font: 9px var(--mono); }
+.quickstart[open] summary { border-bottom: 1px solid #edf1ec; }
+.quickstart-content { padding: 14px; }
+.quickstart-content > p { margin: 0 0 12px; color: #788678; font-size: 10px; }
+.quickstart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; }
+.quickstart-grid section { min-width: 0; padding: 10px; border: 1px solid #e3e9e1; background: #fafbf9; }
+.quickstart-grid section > span { color: #7f907d; font: 8px var(--mono); letter-spacing: .06em; }
+.quickstart-grid pre { min-height: 34px; margin: 8px 0 2px; overflow-x: auto; color: #293c2d; font: 10px/1.7 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+.quickstart-content > a { color: #55784f; font-size: 9px; }
+.quickstart-content > a:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 570px) {
+  .quickstart-grid { grid-template-columns: 1fr; }
+  .install-copy { min-height: 40px; }
+  .copy-code { min-height: 38px; padding: 8px 4px; }
+  .element-filters button { min-height: 40px; }
+  .bot-state-controls button { min-height: 40px; }
+  .sample-composer button { width: 40px; height: 40px; }
+}
