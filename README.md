@@ -1,52 +1,153 @@
 # pixel.md
 
-![pixel.md component overview](pixel.md/assets/overview.png)
+<p align="center">
+  <strong>Small pixel details for AI interfaces.</strong><br />
+  Activity indicators, chat effects, agent UI, pixel bots, and terminal components.
+</p>
 
-A small pixel UI library for AI, agent, and CLI interfaces. Explore the [live gallery](index.html) to preview agent states, chat effects, workflow elements, pixel bots, and fourteen pixel-native terminal patterns. The gallery loads the same files that ship in the package.
+<p align="center">
+  <a href="https://www.npmjs.com/package/pixel.md"><img alt="npm version" src="https://img.shields.io/npm/v/pixel.md?logo=npm&label=npm" /></a>
+  <a href="https://www.npmjs.com/package/pixel.md"><img alt="npm downloads" src="https://img.shields.io/npm/dm/pixel.md?label=downloads" /></a>
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
+  <a href="https://github.com/JJongyn/pixel.md/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/JJongyn/pixel.md?style=social" /></a>
+  <a href="https://jjongyn.github.io/pixel.md/"><img alt="Live gallery" src="https://img.shields.io/badge/demo-live%20gallery-355c43" /></a>
+</p>
 
-## Package
+![pixel.md component preview](https://raw.githubusercontent.com/JJongyn/pixel.md/main/pixel.md/assets/overview.png)
 
-The npm-ready package lives in [`pixel.md/`](pixel.md/). Until it is published, install it from this checkout:
+pixel.md is a small, dependency-free UI library for AI and agent products. Add a quiet pixel signal to an existing chat, expose what an agent is doing, or give a terminal CLI a consistent visual language.
+
+The browser components are native Custom Elements, so they work in plain JavaScript and frameworks that support web components. The terminal helpers are a separate Node.js entry point.
+
+## Install
 
 ```bash
-npm install ./pixel.md
+npm install pixel.md
 ```
 
-Then import the components you need:
+## Quick start
+
+Import only the browser components your app uses:
 
 ```js
 import 'pixel.md/indicator';
 import 'pixel.md/chat-effect';
-import 'pixel.md/elements';
-import 'pixel.md/bot';
 ```
 
 ```html
-<pixel-agent-status state="thinking" label="Thinking…"></pixel-agent-status>
-<pixel-chat-effect variant="cat"><textarea placeholder="Ask anything…"></textarea></pixel-chat-effect>
-<pixel-ui-element variant="retry"></pixel-ui-element>
-<pixel-bot-avatar variant="mote" state="working" label="San"></pixel-bot-avatar>
+<pixel-agent-status
+  state="thinking"
+  label="Thinking…"
+  detail="Connecting ideas"
+></pixel-agent-status>
+
+<pixel-chat-effect variant="orbit">
+  <textarea placeholder="Ask anything…"></textarea>
+</pixel-chat-effect>
 ```
 
-Chat effects include subtle orbiting pixel frames and tiny car and cat scenes that switch between idle and working states. Terminal CLI programs use a Node.js module instead of browser tags:
+`<pixel-chat-effect>` adds an animated pixel treatment around your input; your app keeps control of the textarea, messages, and send behavior. Change the indicator's `state`, `label`, or `detail` attributes as your agent moves through its workflow.
+
+## Components
+
+| Import | Element or API | Includes |
+| --- | --- | --- |
+| `pixel.md/indicator` | `<pixel-agent-status>` | Thinking, searching, browsing, reading, planning, acting, tool, building, verifying, and responding states |
+| `pixel.md/chat-effect` | `<pixel-chat-effect>` | Orbit, Hop, Anchor, Bevel, Tilt, Prism, Car, and Cat effects, with idle and working states |
+| `pixel.md/elements` | `<pixel-ui-element>` | Compact workflow controls for progress, approvals, sources, retries, streaming, handoff, and more |
+| `pixel.md/bot` | `<pixel-bot-avatar>` | Eight animated pixel characters with configurable states and labels |
+| `pixel.md/terminal` | Node.js functions | ANSI-friendly prompts, progress, output, task lists, confirmations, and more |
+| `pixel.md/terminal-preview` | `<pixel-terminal>` | Browser preview of fourteen terminal patterns |
+
+Import `pixel.md` to register all four browser elements at once, or use the individual subpaths above to keep imports explicit.
+
+## Connect real agent state
+
+Keep component state tied to the state machine in your app:
 
 ```js
-import { pixelProgress, pixelTaskList } from 'pixel.md/terminal';
+const status = document.querySelector('pixel-agent-status');
 
-console.log(pixelProgress('build', 2, { max: 3 }));
-console.log(pixelTaskList(['resolve', 'compile', 'verify'], { active: 1 }));
+function setAgentState(state, detail) {
+  status.setAttribute('state', state);
+  status.setAttribute('detail', detail);
+}
+
+setAgentState('searching', 'Looking through project files');
 ```
 
-See the [package README](pixel.md/README.md) for variants, attributes, events, TypeScript types, and framework guidance.
+Workflow elements emit a bubbling `pixel-element-change` event so your app can handle interactions:
+
+```js
+document.querySelector('pixel-ui-element').addEventListener(
+  'pixel-element-change',
+  event => {
+    console.log(event.detail.variant, event.detail.state);
+  }
+);
+```
+
+See the [package guide](pixel.md/README.md) for variants, attributes, events, styling hooks, TypeScript declarations, and framework notes.
+
+## Terminal CLI
+
+Use the Node.js entry point for terminal output and prompts. It has no runtime dependencies, respects `NO_COLOR`, and falls back to plain text when output is piped.
+
+```js
+import { askPixelCommand, pixelOutput } from 'pixel.md/terminal';
+
+const command = await askPixelCommand({ cwd: '~/project' });
+
+// Validate the input before passing it to your own command runner.
+if (command) {
+  console.log(pixelOutput({
+    command,
+    lines: ['Build complete'],
+    status: 'success',
+    duration: '1.8s'
+  }));
+}
+```
+
+The terminal helpers format output and collect input; they do not execute shell commands. Your CLI remains responsible for validation and execution.
+
+## Design principles
+
+- **Small by default.** Pixel motion is a detail around the interface, not a replacement for it.
+- **Bring your own UI.** Chat effects wrap existing inputs; they do not take over application state or interaction.
+- **Native browser elements.** No React runtime or component framework is required.
+- **Motion with care.** Animated browser components pause when hidden or offscreen and honor `prefers-reduced-motion`.
+- **Useful in a terminal.** CLI output supports ANSI color, piped output, and `NO_COLOR`.
+- **No runtime dependencies.** Browser elements and CLI helpers use platform APIs.
 
 ## Agent skills
 
-The [`pixel-md` agent skill](skills/pixel-md/SKILL.md) includes a catalog with a dedicated guide for each indicator state, chat effect, UI element, bot avatar, and terminal component. It is discoverable through `.agents/skills/` and `.claude/skills/`, and ships inside the npm package. In another project, copy `node_modules/pixel.md/skills/pixel-md/` into `.agents/skills/pixel-md/` or `.claude/skills/pixel-md/`.
+The package includes the [`pixel-md` skill](pixel.md/skills/pixel-md/SKILL.md), with component-specific references for indicators, chat effects, UI elements, bots, and terminal patterns. To add it to a project:
 
-## Gallery
+```bash
+mkdir -p .agents/skills
+cp -R node_modules/pixel.md/skills/pixel-md .agents/skills/
+```
 
-Run `python3 -m http.server 4173` in this directory, then open `http://127.0.0.1:4173/`. The gallery is a static site; no build step is needed. Its Chat effects previews use a plain text area so the effect itself remains the focus. The optional `pixel.md/examples/pixel-chat-composer.js` is not included in the package.
+For Claude Code, copy the same folder to `.claude/skills/` instead. The skill is optional; the components work without it.
 
-## Release status
+## Live gallery
 
-The folder is prepared for npm publishing under the requested name `pixel.md`. The license decision is pending, so it is currently marked `UNLICENSED` and has not been published.
+Browse and try the components at **[jjongyn.github.io/pixel.md](https://jjongyn.github.io/pixel.md/)**. To run the gallery from a checkout:
+
+```bash
+python3 -m http.server 4173
+```
+
+Then open `http://localhost:4173/`.
+
+## Contributing
+
+Bug reports, ideas, and pull requests are welcome. Please include the component or entry point involved and a short reproduction when reporting a problem.
+
+- [Open an issue](https://github.com/JJongyn/pixel.md/issues)
+- [Browse the source](https://github.com/JJongyn/pixel.md)
+
+## License
+
+[MIT](LICENSE) © 2026 JJongyn

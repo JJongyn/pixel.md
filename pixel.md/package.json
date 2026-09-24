@@ -3,13 +3,28 @@
   "version": "0.1.0",
   "description": "Small pixel UI components for AI and agent interfaces",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "author": "JJongyn",
+  "homepage": "https://jjongyn.github.io/pixel.md/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JJongyn/pixel.md.git",
+    "directory": "pixel.md"
+  },
+  "bugs": {
+    "url": "https://github.com/JJongyn/pixel.md/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "sideEffects": true,
   "files": [
     "src",
     "types",
     "skills",
-    "scripts",
     "examples",
     "README.md",
     "assets"
